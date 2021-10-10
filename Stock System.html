@@ -217,11 +217,9 @@ function myRemove(li1 ,li2 , li3) {
 
 //  if(pRODUCTTORMV == "1"){
 
-list.removeChild(li1) ;
-list.removeChild(li2) ;
-list.removeChild(li3) ;
-
- // }
+    while (list.hasChildNodes()) {  
+  list.removeChild(list.firstChild);
+  }
 
   }//////////////////////End of Function////////////////////
 
