@@ -1,0 +1,234 @@
+//Mr MP Motuba  https://github.com/msg15/StockSystem.git
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name = "viewport" content="width= device-width, initial-scale=1.0">
+        <title>Stock System</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body> 
+        <!-- Adding new stock. -->
+        <h1>Adding new stock</h1>
+        <form>
+            <input list = "Select-a-product"   type="text" name="text" id="txtPrd" placeholder="Select a product" />       
+             <datalist id = "Select-a-product">
+                 <option value= "PRODUCT1">
+                 <option value= "PRODUCT2">
+                 <option value= "PRODUCT3">
+             </datalist>
+            <!-- <label for="txtPrd"> Product </label>-->
+              <br>
+              
+            <input type = "text" name = "text" id="txtITEMRSV" placeholder="Enter the number of products"
+            required>
+            <!--<label for="txtITEMRSV"> Number of products </label>-->
+            <br>
+
+            <input type = "text" name = "textP" id="txtP" placeholder="Price per item "
+            required>  
+           <!--<label for="txtP"> Price per product </label> <br>--> 
+            
+            <button type="submit" class="btnAdd">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+        </form>
+<!--<div class="container">
+            <ul>
+                
+                
+            </ul>
+        </div> -->
+        <!-- Adding new stock. -->
+
+
+
+
+
+        <!-- Remove stock. -->
+        <h2>Removing stock</h2>
+        <form2>
+            <input list = "Select-a-product"   type="text" name="text" id="txtPrdRMV" placeholder="Select a product" />       
+             <datalist id = "Select-a-product">
+                 <option value= "PRODUCT1">
+                 <option value= "PRODUCT2">
+                 <option value= "PRODUCT3">
+             </datalist>
+              <br>
+            <input type = "text" name = "text" id="txtEmail" placeholder="Enter the buyer's email address."
+            required> <br>
+            <input type = "text" name = "textP" id="txtNOITEMS" placeholder="Enter the number of items bought. "
+            required>  
+          
+            
+            <button onclick="myRemove()"  type="submit" class="btnRmv">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+            </button>
+        </form2>
+        <div class="container2">
+            <ul2>
+                
+                
+            </ul2>
+        </div>
+        <!-- Remove stock. -->
+
+
+
+
+
+         <!-- Show available stock. -->
+         <h3>Stock levels</h3>
+            <form>
+              
+               
+            </form>
+            <div class="container">
+                <ul>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Show available stock. -->
+    
+
+<script>
+
+ //const PRODUCT ;
+ //const NOOFPRODUCTS ;
+ //const PRODUCTPRICE ;
+ //const PRODUCTTORMV ;
+ //const CUSTEMAIL ;
+ //const NOIFPRODUCTSTORV ;
+
+
+const inputText = document
+    //add from text
+const PRODUCT = document.querySelector('#txtPrd') ;
+const NOOFPRODUCTS = document.querySelector('#txtITEMRSV') ;
+const PRODUCTPRICE = document.querySelector('#txtP') ;
+const pRODUCTTORMV = document.querySelector('#txtPrdRMV') ;
+const cUSTEMAIL = document.querySelector('#txtEmail') ;
+const nOIFPRODUCTSTORV = document.querySelector('#txtNOITEMS') ;
+
+
+const list = document.querySelector('.container ul') ;
+
+  //create li
+  
+
+
+
+
+///removing the span
+
+
+const myRemoveButton = document.querySelector('.btnRMV') ;
+const myButton = document.querySelector('.btnAdd') ;
+/////////////////////////////////ButtonADDListener//////////////////////////////////
+myButton.addEventListener('click' , (e)=>{
+    if(PRODUCT.value != ""){
+        e.preventDefault();
+       
+        const myLi = document.createElement('li') ;
+        const myLi2 = document.createElement('li') ;
+        const myLi3 = document.createElement('li') ;
+
+
+
+        myLi.innerHTML = PRODUCT.value ;
+        myLi2.innerHTML = NOOFPRODUCTS.value ;
+       // myLi3.innerHTML = inputText3.value  ;
+
+        var  num1  = document.getElementById("txtITEMRSV").value ;
+        var  num2  = document.getElementById("txtP").value ;
+        var result = num1 * num2 ;
+        myLi3.innerHTML = "R " + result ;
+        
+        list.appendChild(myLi) ;
+        list.appendChild(myLi2) ;
+        list.appendChild( myLi3) ;
+
+         //create span
+        const mySpan = document.createElement('span') ;
+        const mySpan2 = document.createElement('span2') ;        
+        const mySpan3 = document.createElement('span3') ;
+       
+        
+        mySpan.innerHTML = '' ;
+        myLi.appendChild(mySpan) ;
+
+        
+        mySpan2.innerHTML = '' ;
+        myLi2.appendChild(mySpan2) ;
+
+        
+        mySpan3.innerHTML = '' ;
+        myLi3.appendChild(mySpan3) ;
+
+
+ //  clear the text fields;       
+       document.getElementById("txtITEMRSV").value = "";
+       document.getElementById("txtP").value = ""; 
+       PRODUCT.value = "" ;    
+
+    }
+
+    //close/remove 
+    const close = document.querySelectorAll('span');
+    const close2 = document.querySelectorAll('span2');
+    const close3 = document.querySelectorAll('span3');
+    
+    for (let i = 0 ; i <close.length; i++){
+        close[i].addEventListener('click' , ()=>{
+            close[i].parentElement.style.opacity = 0 ;
+           setTimeout(()=> {
+            close[i].parentElement.style.display = "none" ;
+            close[i].parentElement.remove() ;
+        },500) ;
+
+        close2[i].parentElement.style.opacity = 0 ;
+           setTimeout(()=> {
+            close2[i].parentElement.style.display = "none" ;
+            close2[i].parentElement.remove() ;
+        },500) ;
+
+        close3[i].parentElement.style.opacity = 0 ;
+           setTimeout(()=> {
+            close3[i].parentElement.style.display = "none" ;
+            close3[i].parentElement.remove() ;
+        },500) ;
+    })  
+ }
+
+
+
+     
+
+}) ;//////////////////////////////////ButtonAddListner//////////////////////////////////
+
+
+
+                                ///Button Remove
+///////////////////////Function to remove products/////////////////////
+function myRemove(li1 ,li2 , li3) {
+
+//  if(pRODUCTTORMV == "1"){
+
+list.removeChild(li1) ;
+list.removeChild(li2) ;
+list.removeChild(li3) ;
+
+ // }
+
+  }//////////////////////End of Function////////////////////
+
+
+
+
+
+      </script>
+    </body>
+</html>
